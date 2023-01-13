@@ -1,0 +1,52 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+input CreateProjectInput {
+  code: Float!
+  name: String!
+}
+
+type Employee {
+  city: String
+  designation: String!
+  firstName: String!
+  id: String!
+  lastName: String!
+  project: Project!
+  projectId: String!
+}
+
+input EmployeeCreateDto {
+  city: String
+  designation: String!
+  firstName: String!
+  lastName: String!
+  projectId: String!
+}
+
+type Mutation {
+  createEmployee(employee: EmployeeCreateDto!): Employee!
+  createProject(project: CreateProjectInput!): Project!
+  removeProject(id: Int!): Project!
+  updateProject(project: UpdateProjectInput!): Project!
+}
+
+type Project {
+  code: Float!
+  employees: [Employee!]!
+  id: String!
+  name: String!
+}
+
+type Query {
+  getAllEmployees: [Employee!]
+  getAllProjects: [Project!]!
+  getProjectById(id: String!): Project!
+}
+
+input UpdateProjectInput {
+  code: Float
+  id: Int!
+  name: String
+}
